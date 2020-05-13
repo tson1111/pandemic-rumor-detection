@@ -2,10 +2,12 @@ from django.shortcuts import render
 from django.http import HttpResponse
 import json
 
-sample = ""
-with open('./mainapp/sample.json') as f:
-    sample = json.load(f)
-
+sample1 = ""
+sample2 = ""
+with open('./mainapp/sample1.json') as f:
+    sample1 = json.load(f)
+with open('./mainapp/sample2.json') as f:
+    sample2 = json.load(f)
 
 def jsonToHtml(jsonObj):
     s = ""
@@ -17,4 +19,4 @@ def jsonToHtml(jsonObj):
 
 
 def index(request):
-    return HttpResponse(jsonToHtml(sample)+jsonToHtml(sample))
+    return HttpResponse(jsonToHtml(sample1)+jsonToHtml(sample2))
