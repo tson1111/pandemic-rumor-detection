@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>评价</title>
+    <link rel="stylesheet" href="css/reset.css"/>
+    <link rel="stylesheet" href="css/homeHead.css"/>
+    <link rel="stylesheet" href="css/homePublic.css"/>
+    <link rel="stylesheet" href="css/myPendding.css"/>
+</head>
+<body>
+<header class="zyHead">
+    <div class="zyHead_cen">
+        <a href=""><img src="img/per-con.png" alt="" class="headPic1"/></a>
+        <a href="" class="backIndex">返回首页</a>
+        <!--未登入开始-->
+        <!--<div class="ltForm">-->
+        <!--<a href=""><img src="img/indexForm_bg.png" alt="" class="headPic2"/></a>-->
+        <!--<ul>-->
+        <!--<li><a href="">登入</a></li>-->
+        <!--<li><a href="">注册</a></li>-->
+        <!--</ul>-->
+        <!--</div>-->
+        <!-- 未登入结束-->
+        <!-- 登入开始，未登入时以下隐藏-->
+        <div class="lt_login">
+            <ul>
+                <li><a href="">花开花落</a></li>
+                <li><a href="">退出</a></li>
+            </ul>
+        </div>
+        <!-- 登入结束-->
+    </div>
+</header>
+<div class="homeCen">
+    <div class="homeCen_left">
+        <ul>
+            <li><a href="">我的主页</a></li>
+            <li><a href="">基本设置</a></li>
+            <li><a href="">我的贴子</a></li>
+            <li><a href="">我的消息</a></li>
+            <li class="on"><a href="">我的订单</a></li>
+        </ul>
+    </div>
+    <div class="homeCen_right">
+        <div class="motai">
+            <div class="motai_img"></div>
+            <form action="javascript:;" class="motai_con">
+                <div class="clear"></div>
+                <p class="order-msg">订单号：<span>111111</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i>15:30:26</i></p>
+                <p class="order_tittle">指标延期</p>
+                <div class="star_arg">
+                    <p><span>*</span>专业程度：</p>
+                    <div class="star_star" style="float: left">
+                        <div id="score-demo"></div>
+                        <input type="hidden" id="major" value="5">
+                    </div>
+                </div>
+                <div class="clear"></div>
+                <div class="star_arg">
+                    <p><span>*</span>服务态度：</p>
+                    <div class="star_star" style="float: left">
+                        <div id="score1-demo"></div>
+                        <input type="hidden" id="service" value="5">
+                    </div>
+                </div>
+                <div class="clear"></div>
+                <div class="star_arg">
+                    <p><span>*</span>响应速度：</p>
+                    <div class="star_star" style="float: left">
+                        <div id="score2-demo"></div>
+                        <input type="hidden" id="fast" value="5">
+                    </div>
+                </div>
+                <div class="clear"></div>
+                <div class="pending_stand">
+                    <p><span>*</span>评价标签：</p>
+                    <div class="pending_stand_con">
+                        <ul class="fruit">
+                            <li><input type="checkbox" name="check" value="1">解答全面</li>
+                            <li><input type="checkbox" name="check" value="2">技能专业</li>
+                            <li><input type="checkbox"  name="check" value="3">服务周到</li>
+                            <li><input type="checkbox"  name="check" value="4">仔细认真</li>
+                            <li><input type="checkbox"  name="check" value="5">合作愉快</li>
+                            <li><input type="checkbox"  name="check" value="6">细致耐心</li>
+                            <li><input type="checkbox"  name="check" value="7">价格满意</li>
+                            <li><input type="checkbox"  name="check" value="8">响应迅速</li>
+                            <li><input type="checkbox"  name="check" value="9">考虑细致</li>
+                            <li><input type="checkbox"  name="check" value="10">实用高效</li>
+                            <li><input type="checkbox"  name="check" value="11">做事认真</li>
+                            <li><input type="checkbox"  name="check" value="12">主动热情</li>
+                            <li><input type="checkbox"  name="check" value="13">诚信负责</li>
+                            <li><input type="checkbox"  name="check" value="14">业务熟练</li>
+                        </ul>
+                    </div>
+                </div>
+                <p class="arg_con">
+                    <span><i>*</i>评价内容：</span>
+                    <textarea name="content" id="content" placeholder="对本次服务的感受"></textarea>
+                </p>
+                <!--<p style="text-indent: 100px;line-height: 30px;color: #999;">评论10个字以上,奖励十积分</p>-->
+                <input type="hidden" id="orderid" value="{$info.id}">
+                <input type="submit" class="submit" value="提交评价" />
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+<script src="js/jquery-1.8.3.min.js"></script>
+<script src="js/jquery.raty.min.js"></script>
+<script src="js/myPending.js"></script>
