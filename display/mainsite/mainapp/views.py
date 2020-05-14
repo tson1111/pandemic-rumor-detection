@@ -1,23 +1,6 @@
 from django.http import HttpResponse
-from django.shortcuts import render
 from django.template import loader
 import json
-
-sample1 = ""
-sample2 = ""
-with open('./mainapp/sample1.json') as f:
-    sample1 = json.load(f)
-with open('./mainapp/sample2.json') as f:
-    sample2 = json.load(f)
-
-
-def jsonToHtml(jsonObj):
-    s = ""
-    s += "<h1>"+str(jsonObj['text'])+"</h1>"
-    for key, value in jsonObj.items():
-        s += "<p>" + str(key)+": "+str(value)+"</p>"
-    return s
-    # json.dumps(jsonObj, indent=2, ensure_ascii=False)
 
 
 def templateTest(request):
@@ -30,8 +13,9 @@ def templateTest(request):
 
 
 def index(request):
-
-    contents = range(9)
+    with open('./mainapp/data/sample1.json', encoding='utf-8') as f:
+        sample1 = json.load(f)
+    contents = [sample1] * 15
     template = loader.get_template('mainapp/index.html')
     context = {
         'contents': contents,
@@ -46,3 +30,16 @@ def index(request):
     # return HttpResponse(html)
 
     # return HttpResponse(jsonToHtml(sample1)+jsonToHtml(sample2))
+
+
+def jsonToHtml(jsonObj):
+    """
+    unused old version
+    """
+
+    s = ""
+    s += "<h1>"+str(jsonObj['text'])+"</h1>"
+    for key, value in jsonObj.items():
+        s += "<p>" + str(key)+": "+str(value)+"</p>"
+    return s
+    # json.dumps(jsonObj, indent=2, ensure_ascii=False)
