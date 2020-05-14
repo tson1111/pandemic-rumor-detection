@@ -31,10 +31,10 @@ def templateTest(request):
 
 def index(request):
 
-    latest_question_list = ['a', 'b', 'c']
+    contents = range(9)
     template = loader.get_template('mainapp/index.html')
     context = {
-        'latest_question_list': latest_question_list,
+        'contents': contents,
     }
     return HttpResponse(template.render(context, request))
 
