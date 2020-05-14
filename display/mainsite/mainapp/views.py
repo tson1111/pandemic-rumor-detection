@@ -22,7 +22,7 @@ def jsonToHtml(jsonObj):
 
 def templateTest(request):
     latest_question_list = ['a', 'b', 'c']
-    template = loader.get_template('mainapp/index.html')
+    template = loader.get_template('mainapp/templateTest.html')
     context = {
         'latest_question_list': latest_question_list,
     }
@@ -30,7 +30,15 @@ def templateTest(request):
 
 
 def index(request):
-    return templateTest(request)
+
+    latest_question_list = ['a', 'b', 'c']
+    template = loader.get_template('mainapp/index.html')
+    context = {
+        'latest_question_list': latest_question_list,
+    }
+    return HttpResponse(template.render(context, request))
+
+    # return templateTest(request)
 
     # with open("template.html", "r") as src:
     #     content = Template(src.read())

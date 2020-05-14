@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>我的资料</title>
+    <link rel="stylesheet" href="css/reset.css"/>
+    <link rel="stylesheet" href="css/homeHead.css"/>
+    <link rel="stylesheet" href="css/homePublic.css"/>
+    <link rel="stylesheet" href="css/base.css"/>
+</head>
+<body>
+<header class="zyHead">
+    <div class="zyHead_cen">
+        <a href=""><img src="img/per-con.png" alt="" class="headPic1"/></a>
+        <a href="" class="backIndex">返回首页</a>
+        <!--未登入开始-->
+        <!--<div class="ltForm">-->
+        <!--<a href=""><img src="img/indexForm_bg.png" alt="" class="headPic2"/></a>-->
+        <!--<ul>-->
+        <!--<li><a href="">登入</a></li>-->
+        <!--<li><a href="">注册</a></li>-->
+        <!--</ul>-->
+        <!--</div>-->
+        <!-- 未登入结束-->
+        <!-- 登入开始，未登入时以下隐藏-->
+        <div class="lt_login">
+            <ul>
+                <li><a href="">花开花落</a></li>
+                <li><a href="">退出</a></li>
+            </ul>
+        </div>
+        <!-- 登入结束-->
+    </div>
+</header>
+<div class="homeCen">
+    <div class="homeCen_left">
+        <ul>
+            <li><a href="">我的主页</a></li>
+            <li class="on"><a href="">基本设置</a></li>
+            <li><a href="">我的贴子</a></li>
+            <li><a href="">我的消息</a></li>
+            <li><a href="">我的订单</a></li>
+        </ul>
+    </div>
+    <div class="homeCen_right">
+        <div class="baseHead">
+            <ul>
+                <li><a href="" class="on">我的资料</a></li>
+                <li><a href="">头像</a></li>
+                <li><a href="">密码</a></li>
+            </ul>
+        </div>
+        <div class="baseCon">
+            <div class="baseCon_son">
+                <div class="baseCon_son_left">
+                    昵称
+                </div>
+                <div class="baseCon_son_right">
+                    <input type="text"/>
+                </div>
+            </div>
+            <div class="baseCon_son">
+                <div class="baseCon_son_left">
+                    真实姓名
+                </div>
+                <div class="baseCon_son_right">
+                    <input type="text"/>
+                </div>
+            </div>
+            <div class="baseCon_son">
+                <div class="baseCon_son_left">
+                    常用邮箱
+                </div>
+                <div class="baseCon_son_right">
+                    <input type="text"/>
+                </div>
+            </div>
+            <div class="chooseSex">
+                <p><input type="radio" name="sex" checked/><label>男</label></p>
+                <p><input type="radio" name="sex"/><label>女</label></p>
+            </div>
+            <input type="submit" value="确认修改" class="upload_sure"/>
+        </div>
+    </div>
+</div>
+</body>
+</html>
