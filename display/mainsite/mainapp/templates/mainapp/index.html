@@ -1,3 +1,5 @@
+{% load static %}
+<img src="{% static "mainapp/img/cs.png" %}" alt="My image">
 {% if latest_question_list %}
     <ul>
     {% for question in latest_question_list %}

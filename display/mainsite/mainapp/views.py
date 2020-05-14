@@ -30,7 +30,7 @@ def templateTest(request):
 
 
 def index(request):
-    templateTest(request)
+    return templateTest(request)
 
     # with open("template.html", "r") as src:
     #     content = Template(src.read())
