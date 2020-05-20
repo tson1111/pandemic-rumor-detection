@@ -84,41 +84,46 @@
                     </div>
                     <div class="clear"></div>
                 </div> -->
-                <!--有主题图模板结束-->   
+                <!--有主题图模板结束-->
                 {% for content in contents %}
-                    <div class="indexCon_msg">
-                        <div class="indexCon_msg_pic"></div>
-                        <div class="indexCon_msg_detail">
-                            <a href="">
-                                <div class="indexCon_msg_detail_tittle">
-                                    <span>
-                                        {% if content.rumor %}
-                                        谣言
-                                        {% else %}
-                                        非谣言
-                                        {% endif %}
-                                    </span>
-                                    <p>{{ content.title }}</p>
-                                </div>
-                            </a>
-                            <div class="indexCon_msg_detail_other">
-                                <ul>
-                                    <li>{{ content.location }}</li>
-                                    <li>{{ content.time }}</li>
-                                    <li>21</li>
-                                    <li>28</li>
-                                    <li>{{ content.org }}</li>
-                                    <li>{{ content.company }}</li>
-                                    <li>{{ content.person }}</li>
-                                    <li>{{ content.job }}</li>
-                                </ul>
+                <div class="indexCon_msg">
+                    <!-- <div class="indexCon_msg_pic"></div> -->
+                    <div class="indexCon_msg_detail">
+                        <a href="">
+                            <div class="indexCon_msg_detail_tittle">
+                                <span>
+                                    {% if content.rumor %}
+                                    非谣言
+                                    {% else %}
+                                    谣言
+                                    {% endif %}
+                                </span>
+
                             </div>
+                        </a>
+                        <p>{{ content.content }}</p>
+                        <br>
+                        <div class="indexCon_msg_detail_other">
+                            <ul>
+                                <li>{{ content.location }}</li>
+                                <li>{{ content.time }}</li>
+                                <!-- 下面两个标签是评论与观看数 -->
+                                <li></li>
+                                <li></li>
+                                <li>{{ content.ner }}</li>
+                                <!-- <li>{{ content.org }}</li>
+                                <li>{{ content.company }}</li>
+                                <li>{{ content.person }}</li>
+                                <li>{{ content.job }}</li> -->
+                            </ul>
                         </div>
-                        <div class="clear"></div>
                     </div>
+                    <div class="clear"></div>
+                </div>
                 {% endfor %}
             </div>
-            <div class="indexFooter">
+            <!-- 翻页功能 -->
+            <!-- <div class="indexFooter">
                 <div class="indexFooter_con">
                     <a href="javascript:"><</a>
                     <a href="" class="on">1</a>
@@ -126,11 +131,11 @@
                     <a href="">3</a>
                     <a href="javascript:">></a>
                 </div>
-            </div>
+            </div> -->
         </div>
         <div class="indexMain_right">
             <div class="indexMain_rightCon">
-                <a href="" class="newMsg">谣言检测</a>
+                <a href="" class="newMsg"></a>
                 <div class="pwfb">
                     <div class="pwfbHead">
                         公告
@@ -138,20 +143,33 @@
                     <div class="pwfbCon"></div>
                     <div class="pwfbFooter"></div>
                 </div>
-                <div class="indexSearch">
+                <!-- 搜索框 -->
+                <!-- <div class="indexSearch">
                     <input type="text" placeholder="请输入关键词" />
                     <input type="submit" value="搜索" />
-                </div>
+                </div> -->
                 <div class="indexPublic">
                     <div class="indexPublic_head">
                         热门
                     </div>
                     <div class="indexPublic_con">
                         <ul class="weekHot">
-                            <li><a href="">特朗普：美国死亡率世界最低</a><span>29</span></li>
-                            <li><a href="">特朗普：喝消毒液能治新冠</a><span>30</span></li>
-                            <li><a href="">特朗普：没有人比我更懂疫情</a><span>14</span></li>
-                            <li><a href="">特朗普：解雇福奇纯属子虚乌有</a><span>9</span></li>
+                            <li>
+                                <a href="">特朗普：美国死亡率世界最低</a>
+                                <!-- <span>29</span> -->
+                            </li>
+                            <li>
+                                <a href="">特朗普：喝消毒液能治新冠</a>
+                                <!-- <span>30</span> -->
+                            </li>
+                            <li>
+                                <a href="">特朗普：没有人比我更懂疫情</a>
+                                <!-- <span>14</span> -->
+                            </li>
+                            <li>
+                                <a href="">特朗普：解雇福奇纯属子虚乌有</a>
+                                <!-- <span>9</span> -->
+                            </li>
                         </ul>
                     </div>
                 </div>

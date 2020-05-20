@@ -13,12 +13,16 @@ def templateTest(request):
 
 
 def index(request):
-    with open('./mainapp/data/sample1.json', encoding='utf-8') as f:
-        sample1 = json.load(f)
-    contents = [sample1] * 15
+    with open('./mainapp/data/result520.json', encoding='utf-8') as f:
+        data = json.load(f)['data']
+    for i in data:
+        i['ner'] = ""
+        for field in ['org', 'company', 'person', 'job']:
+            if i[field] is not '':
+                i['ner'] += i[field]+' '
     template = loader.get_template('mainapp/index.html')
     context = {
-        'contents': contents,
+        'contents': data,
     }
     return HttpResponse(template.render(context, request))
 
