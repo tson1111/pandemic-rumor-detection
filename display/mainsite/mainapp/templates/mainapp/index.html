@@ -90,15 +90,13 @@
                     <!-- <div class="indexCon_msg_pic"></div> -->
                     <div class="indexCon_msg_detail">
                         <a href="">
-                            <div class="indexCon_msg_detail_tittle">
-                                <span>
-                                    {% if content.rumor %}
-                                    非谣言
-                                    {% else %}
-                                    谣言
-                                    {% endif %}
-                                </span>
-
+                            {% if content.rumor %}
+                                <div class="indexCon_msg_detail_tittle">
+                                    <span style="color:#0fbd51;border: 1px solid #0fbd51">非谣言</span>
+                            {% else %}
+                                <div class="indexCon_msg_detail_tittle">
+                                    <span>谣言</span>
+                            {% endif %}
                             </div>
                         </a>
                         <p>{{ content.content }}</p>

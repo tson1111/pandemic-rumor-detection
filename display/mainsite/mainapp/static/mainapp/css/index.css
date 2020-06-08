@@ -145,6 +145,31 @@ body{
     color: #e43e20;
     text-decoration: underline;
 }
+.indexCon_msg_detail_tittle2{
+    width: 100%;
+    height: 28px;
+    overflow: hidden;
+}
+.indexCon_msg_detail_tittle2 span{
+    display: block;
+    float: left;
+    padding: 0 6px;
+    border: 1px solid #0feb51;
+    border-radius: 5px;
+    color:#0feb51 ;
+    margin-right: 10px;
+    margin-top: 2px;
+}
+.indexCon_msg_detail_tittle2 p{
+    float: left;
+    font-size: 14px;
+    color: #333;
+}
+.indexCon_msg_detail_tittle2 p:hover{
+    color: #0feb51;
+    text-decoration: underline;
+}
+
 .havePic{
     width: 100%;
     height: 110px;
@@ -234,7 +259,7 @@ body{
     border-right: none;
     color: #fff;
 }
-/*ÓÒ±ß*/
+/*ï¿½Ò±ï¿½*/
 .newMsg{
     display: block;
     font-size: 14px;
@@ -384,7 +409,7 @@ body{
     line-height: 80px;
     background: url("../img/footerBg.png") no-repeat center 0;
 }
-/*Ìû×ÓÄÚÈÝ²¿·Ö*/
+/*ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ý²ï¿½ï¿½ï¿½*/
 .tzCon{
     width: 100%;
     box-sizing: border-box;
