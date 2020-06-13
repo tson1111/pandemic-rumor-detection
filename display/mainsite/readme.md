@@ -10,4 +10,4 @@ django 3.0.5
 > python manage.py runserver
 ```
 
-2. Access http://127.0.0.1:8000/mainapp/ to navigate to the main page.
+2. Access http://127.0.0.1:8000/ to navigate to the main page.

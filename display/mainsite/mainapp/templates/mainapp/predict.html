@@ -1,0 +1,130 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>论坛首页</title>
+    <link rel="stylesheet" href="{% static "mainapp/css/reset.css" %}" />
+    <link rel="stylesheet" href="{% static "mainapp/css/public.css" %}" />
+    <link rel="stylesheet" href="{% static "mainapp/css/index.css" %}" />
+</head>
+
+<body>
+    <header class="ltHead">
+        <div class="ltHead_cen">
+            <a href="/"><img src="{% static "mainapp/img/logo.png" %}" alt="" class="headPic1" /></a>
+            <ul class="headNav">
+                <li><a href="/">首页</a></li>
+                <li><a href="/">国内消息</a></li>
+                <li><a href="/">国外消息</a></li>
+                <li><a href="">联系我们</a></li>
+
+            </ul>
+            <!--未登入开始-->
+            <div class="ltForm appear">
+                <a href=""><img src="{% static "mainapp/img/indexForm_bg.png" %}" alt="" class="headPic2" /></a>
+                <ul>
+                </ul>
+            </div>
+
+            <div class="navFix">
+
+            </div>
+        </div>
+    </header>
+    <div class="indexMain">
+        <div class="indexMain_left">
+
+            <div class="indexMain_left_con">
+
+                <div class="indexCon_msg">
+                    <!-- <div class="indexCon_msg_pic"></div> -->
+                    <div class="indexCon_msg_detail">
+                        <a href="/">
+                            {% if content.rumor %}
+                            <div class="indexCon_msg_detail_tittle">
+                                <span style="color:#0fbd51;border: 1px solid #0fbd51">非谣言</span>
+                                {% else %}
+                                <div class="indexCon_msg_detail_tittle">
+                                    <span>谣言</span>
+                                    {% endif %}
+                                </div>
+                        </a>
+                        <p>{{ content.content }}</p>
+                        <br>
+                        <div class="indexCon_msg_detail_other">
+                            <ul>
+                                <li>{{ content.location }}</li>
+                                <li>{{ content.time }}</li>
+                                <!-- 下面两个标签是评论与观看数 -->
+                                <li></li>
+                                <li></li>
+                                <li>{{ content.ner }}</li>
+                                <!-- <li>{{ content.org }}</li>
+                                <li>{{ content.company }}</li>
+                                <li>{{ content.person }}</li>
+                                <li>{{ content.job }}</li> -->
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+            </div>
+            <!-- 翻页功能 -->
+            <!-- <div class="indexFooter">
+                <div class="indexFooter_con">
+                    <a href="javascript:"><</a>
+
+                    <a href="javascript:">></a>
+                </div>
+            </div> -->
+        </div>
+        <div class="indexMain_right">
+            <div class="indexMain_rightCon">
+                <!-- <div class="pwfb">
+                    <div class="pwfbHead">
+                        公告
+                    </div>
+                    <div class="pwfbCon">
+                    </div>
+                    <div class="pwfbFooter"></div>
+                </div> -->
+                <!-- <a href="" class="newMsg"></a> -->
+                <!-- 搜索框 -->
+                <form action="/mainapp/predict" method="get" class="indexSearch">
+                    <input type="text" placeholder="请输入文章" name="q" />
+                    <input type="submit" value="分析" />
+                </form>
+
+            </div>
+        </div>
+        <div class="clear"></div>
+    </div>
+    <footer class="publicFooter">
+        <p> &copy; 2019-2020 北京大学 计算机网络实习 小组作业</p>
+        <!-- <p>Copyright &copy; 2017-2018 PaiWang 上海钦合投资管理有限公司版权所有 沪ICP备16032224号-2</p> -->
+    </footer>
+</body>
+
+</html>
+<script src="{% static "mainapp/js/jquery-1.8.3.min.js" %}"></script>
+<script>
+    $(".indexMain_left_btn li a").click(function () {
+        $(".indexMain_left_btn li a").removeClass("on");
+        $(this).addClass("on");
+    });
+    window.onscroll = function () {
+        var scrolls = document.body.scrollTop || document.documentElement.scrollTop;
+        var slided = 60;
+        if (scrolls >= slided) {
+            $(".appear").hide();
+            $(".navFix").show();
+            $(".ltHead").addClass("navTop");
+        } else {
+            $(".appear").show();
+            $(".navFix").hide();
+            $(".ltHead").removeClass("navTop");
+        }
+    };
+</script>

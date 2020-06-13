@@ -40,12 +40,12 @@
             <!-- 登入结束-->
             <div class="navFix">
                 <!--登入开始-->
-                <a href="" class="navMe">花花</a>
+                <!-- <a href="" class="navMe">花花</a> -->
                 <!--登入结束-->
                 <!--未登入开始-->
                 <!--<a href="" class="navLogin">登录</a>-->
                 <!--未登入结束-->
-                <a href="" class="navWrite">发新帖</a>
+                <!-- <a href="" class="navWrite">发新帖</a> -->
             </div>
         </div>
     </header>
@@ -85,6 +85,7 @@
                     <div class="clear"></div>
                 </div> -->
                 <!--有主题图模板结束-->
+
                 {% for content in contents %}
                 <div class="indexCon_msg">
                     <!-- <div class="indexCon_msg_pic"></div> -->
@@ -133,19 +134,20 @@
         </div>
         <div class="indexMain_right">
             <div class="indexMain_rightCon">
-                <a href="" class="newMsg"></a>
-                <div class="pwfb">
+                <!-- <div class="pwfb">
                     <div class="pwfbHead">
                         公告
                     </div>
-                    <div class="pwfbCon"></div>
+                    <div class="pwfbCon">
+                    </div>
                     <div class="pwfbFooter"></div>
-                </div>
-                <!-- 搜索框 -->
-                <!-- <div class="indexSearch">
-                    <input type="text" placeholder="请输入关键词" />
-                    <input type="submit" value="搜索" />
                 </div> -->
+                <!-- <a href="" class="newMsg"></a> -->
+                <!-- 搜索框 -->
+                <form action="/mainapp/predict" method="get" class="indexSearch">
+                    <input type="text" placeholder="请输入文章" name="q" />
+                    <input type="submit" value="分析" />
+                </form>
                 <div class="indexPublic">
                     <div class="indexPublic_head">
                         热门
