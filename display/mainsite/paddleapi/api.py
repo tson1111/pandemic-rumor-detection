@@ -27,7 +27,7 @@ place = fluid.CPUPlace()
 infer_exe = fluid.Executor(place)
 infer_exe.run(fluid.default_startup_program())
 
-save_path = './work/infer_model/'
+save_path = './paddleapi/work/infer_model/'
 
 # 从模型中获取预测程序、输入数据名称列表、分类器
 [infer_program, feeded_var_names, target_var] = fluid.io.load_inference_model(
@@ -37,7 +37,7 @@ save_path = './work/infer_model/'
 # 获取数据
 def get_data(sentence):
     # 读取数据字典
-    with open('./data/dict.txt', 'r', encoding='utf-8') as f_data:
+    with open('./paddleapi/data/dict.txt', 'r', encoding='utf-8') as f_data:
         dict_txt = eval(f_data.readlines()[0])
     dict_txt = dict(dict_txt)
     # 把字符串数据转换成列表数据
@@ -85,4 +85,4 @@ def predict(content):
     print(json.dumps(Dict, ensure_ascii=False))
 
 
-predict("3/26/2020", "分享图片 ")
+predict("分享图片")

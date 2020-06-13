@@ -1,6 +1,7 @@
 from django.http import HttpResponse
 from django.template import loader
 import json
+from paddleapi.api import predict as paddle_predict
 
 
 def templateTest(request):
