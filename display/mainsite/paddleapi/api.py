@@ -14,30 +14,33 @@ import csv
 import codecs
 import fool    # FoolNLTK
 
+current_path = os.path.dirname(__file__)
 
-use_cuda = False
-place = fluid.CUDAPlace(0) if use_cuda else fluid.CPUPlace()
-exe = fluid.Executor(place)
-# 进行参数初始化
-exe.run(fluid.default_startup_program())
+def init():
+    global place, exe, infer_program, feeded_var_names, target_var
 
-# 用训练好的模型进行预测并输出预测结果
-# 创建执行器
-place = fluid.CPUPlace()
-infer_exe = fluid.Executor(place)
-infer_exe.run(fluid.default_startup_program())
+    use_cuda = False 
+    place = fluid.CUDAPlace(0) if use_cuda else fluid.CPUPlace()
+    exe = fluid.Executor(place)  
+    # 进行参数初始化
+    exe.run(fluid.default_startup_program())
 
-save_path = './paddleapi/work/infer_model/'
+    # 用训练好的模型进行预测并输出预测结果
+    # 创建执行器
+    place = fluid.CPUPlace()
+    infer_exe = fluid.Executor(place)
+    infer_exe.run(fluid.default_startup_program())
 
-# 从模型中获取预测程序、输入数据名称列表、分类器
-[infer_program, feeded_var_names, target_var] = fluid.io.load_inference_model(
-    dirname=save_path, executor=infer_exe)
+    save_path = current_path + '/work/infer_model_20/'
+
+    # 从模型中获取预测程序、输入数据名称列表、分类器
+    [infer_program, feeded_var_names, target_var] = fluid.io.load_inference_model(dirname=save_path, executor=infer_exe)
 
 
 # 获取数据
 def get_data(sentence):
     # 读取数据字典
-    with open('./paddleapi/data/dict.txt', 'r', encoding='utf-8') as f_data:
+    with open(current_path+'/work/infer_model_20/dict.txt', 'r', encoding='utf-8') as f_data:
         dict_txt = eval(f_data.readlines()[0])
     dict_txt = dict(dict_txt)
     # 把字符串数据转换成列表数据
@@ -51,14 +54,14 @@ def get_data(sentence):
     return data
 
 
-def predict(date, content):
+def predict(date, content): 
+    print("GET data:-----------")
+    print(date, content)
     data = [get_data(content)]
-    shape = [[len(c) for c in data]]  # 获取每句话的单词数量
-    npdata = np.array(data).astype(np.int64).reshape(-1, 1)
-    npbase = np.array(shape, dtype=np.int64)
+    base_shape = [[len(c) for c in data]] # 获取每句话的单词数量
 
     # 生成预测数据
-    tensor_words = fluid.create_lod_tensor(npdata, shape, place)
+    tensor_words = fluid.create_lod_tensor(data, base_shape, place)
 
     # 执行预测
     result = exe.run(program=infer_program,
@@ -66,10 +69,9 @@ def predict(date, content):
                      fetch_list=target_var)
 
     # 输出结果
-    Dict = {'content': content, "rumor": 1, "location": "",
-            "org": "", "company": "", "person": "", "job": ""}
-    lab = np.argsort(result)[0][0][-1]  # 获取结果概率最大的label
-    Dict['rumor'] = str(lab)
+    Dict = {'content':content, "rumor":1, "location":"", "org":"", "company":"", "person":"", "job":""}
+    lab = np.argsort(result)[0][0][-1] # 获取结果概率最大的label
+    Dict['rumor'] = lab
     words, ners = fool.analysis(content)
     for entity in ners[0]:
         if 'location' in entity:
@@ -85,9 +87,7 @@ def predict(date, content):
         elif 'job' in entity:
             Dict['job'] = entity[3]
     return Dict
-    # print(json.dumps(Dict, ensure_ascii=False))
 
-
-# predict("分享图片")
-
-print("\nNLP model successfully loaded!\n")
+init()
+print("Detection model successfully loaded!")
+    
