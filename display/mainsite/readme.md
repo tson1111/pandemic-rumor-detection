@@ -1,9 +1,9 @@
 # Requirement
-python 3.6.9
+- python 3.6.9
+- django 3.0.5
+- requirements in `/rumor_detection`
 
-django 3.0.5
-
-This project is developed in Windows 10 operation system. It should also be compatible in MAC and Linux. 
+This project is developed in Ubuntu 18.04 LTS operation system. It should also be compatible in MAC and Windows 10. 
 
 # Setup Guide
 
