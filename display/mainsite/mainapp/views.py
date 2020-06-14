@@ -32,9 +32,12 @@ def predict(request):
     request.encoding = 'utf-8'
     if 'q' in request.GET and request.GET['q']:
         message = request.GET['q']
-        #! call
-        result = {'content': message}
-        # result = api.predict(request.GET['q'])
+        result = paddle_predict(request.GET['q'])
+        result['ner'] = ""
+        for field in ['org', 'company', 'person', 'job']:
+            if result[field] != '':
+                result['ner'] += result[field]+' '
+        print(result)
     else:
         message = '提交内容为空。'
         result = {'content': message}

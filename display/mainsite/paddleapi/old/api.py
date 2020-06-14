@@ -54,7 +54,7 @@ def get_data(sentence):
 def predict(content):
     data = [get_data(content)]
     shape = [[len(c) for c in data]]  # 获取每句话的单词数量
-    npdata = np.array(data).astype(np.int64).reshape(-1, 1)
+    npdata = np.array(data, dtype=np.int64)
     npbase = np.array(shape, dtype=np.int64)
 
     # 生成预测数据
@@ -84,10 +84,7 @@ def predict(content):
             Dict['person'] = entity[3]
         elif 'job' in entity:
             Dict['job'] = entity[3]
-    return Dict
-    # print(json.dumps(Dict, ensure_ascii=False))
+    print(json.dumps(Dict, ensure_ascii=False))
 
 
-# predict("分享图片")
-
-print("\nNLP model successfully loaded!\n")
+predict("分享图片")
