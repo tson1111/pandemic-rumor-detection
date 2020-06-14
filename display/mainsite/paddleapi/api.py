@@ -66,7 +66,7 @@ def predict(date, content):
                      fetch_list=target_var)
 
     # 输出结果
-    Dict = {'content': content, "rumor": 1, "location": "", "time": date,
+    Dict = {'content': content, "rumor": 1, "location": "",
             "org": "", "company": "", "person": "", "job": ""}
     lab = np.argsort(result)[0][0][-1]  # 获取结果概率最大的label
     Dict['rumor'] = str(lab)
