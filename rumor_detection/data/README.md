@@ -5,5 +5,5 @@
    - Please download and extract here
    - `rumor-new.7z` and `non-rumor-new.7z` are transformed from crawled and labled weibo data
  - `small.csv` is used to generate static results
-   - `result_20.json` is generated using `model_20`
-   - `result_21.json` is generated using `model_21`
+   - `result_20.json` is generated using `infer_model_20`
+   - `result_21.json` is generated using `infer_model_21`
