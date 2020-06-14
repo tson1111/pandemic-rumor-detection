@@ -51,7 +51,7 @@ def get_data(sentence):
     return data
 
 
-def predict(content):
+def predict(date, content):
     data = [get_data(content)]
     shape = [[len(c) for c in data]]  # 获取每句话的单词数量
     npdata = np.array(data).astype(np.int64).reshape(-1, 1)
@@ -66,7 +66,7 @@ def predict(content):
                      fetch_list=target_var)
 
     # 输出结果
-    Dict = {'content': content, "rumor": 1, "location": "",
+    Dict = {'content': content, "rumor": 1, "location": "", "time": date,
             "org": "", "company": "", "person": "", "job": ""}
     lab = np.argsort(result)[0][0][-1]  # 获取结果概率最大的label
     Dict['rumor'] = str(lab)

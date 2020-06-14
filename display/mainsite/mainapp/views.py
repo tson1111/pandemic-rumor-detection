@@ -2,6 +2,7 @@ from django.http import HttpResponse
 from django.template import loader
 import json
 from paddleapi.api import predict as paddle_predict
+import datetime
 
 
 def templateTest(request):
@@ -32,7 +33,7 @@ def predict(request):
     request.encoding = 'utf-8'
     if 'q' in request.GET and request.GET['q']:
         message = request.GET['q']
-        result = paddle_predict(request.GET['q'])
+        result = paddle_predict(datetime.date.today(), request.GET['q'])
         result['ner'] = ""
         for field in ['org', 'company', 'person', 'job']:
             if result[field] != '':
