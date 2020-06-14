@@ -2,6 +2,7 @@
    - `1981759110_labled.csv` and `3518793057_labled.csv` are labled weibo data
  - Chinese Rumor Dataset
    - Github link: [https://github.com/thunlp/Chinese_Rumor_Dataset](https://github.com/thunlp/Chinese_Rumor_Dataset)
+   - Please download and extract here
    - `rumor-new.7z` and `non-rumor-new.7z` are transformed from crawled and labled weibo data
  - `small.csv` is used to generate static results
    - `result_20.json` is generated using `model_20`
