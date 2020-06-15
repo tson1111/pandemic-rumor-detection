@@ -336,7 +336,6 @@ class Weibo(object):
         try:
             print(u'微博id：%d' % weibo['id'])
             print(u'微博正文：%s' % weibo['text'])
-            print(u'原始图片url：%s' % weibo['pics'])
             print(u'微博位置：%s' % weibo['location'])
             print(u'发布时间：%s' % weibo['created_at'])
             print(u'发布工具：%s' % weibo['source'])
@@ -738,8 +737,7 @@ def main():
             try:
                 config = json.loads(f.read())
             except ValueError:
-                sys.exit(u'config.json 格式不正确，请参考 '
-                         u'https://github.com/dataabc/weibo-crawler#3程序设置')
+                sys.exit(u'config.json 格式不正确')
         wb = Weibo(config)
         wb.start()  # 爬取微博信息
     except Exception as e:
