@@ -2,8 +2,8 @@
 Ubuntu 18.04 LTS
 
 ## Requirement 
-- PaddlePaddle 1.8
-- Fool NLTK
+- [PaddlePaddle](https://www.paddlepaddle.org.cn/) 1.8
+- [Fool NLTK](https://github.com/rockyzhengwu/FoolNLTK)
   - Tensorflow <= 1.14.0, otherwise you have to manually modify some method names called by Fool NLTK
   
 ## Description
