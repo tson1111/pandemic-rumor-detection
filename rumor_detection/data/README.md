@@ -3,7 +3,7 @@
  - Chinese Rumor Dataset
    - Github link: [https://github.com/thunlp/Chinese_Rumor_Dataset](https://github.com/thunlp/Chinese_Rumor_Dataset)
    - Please download and extract here
-   - `rumor-new.7z` and `non-rumor-new.7z` are transformed from crawled and labled weibo data
+   - `rumor-new.7z` and `non-rumor-new.7z` are transformed from crawled and labeld weibo data
  - `small.csv` is used to generate static results
    - `result_20.json` is generated using `infer_model_20`
    - `result_21.json` is generated using `infer_model_21`
